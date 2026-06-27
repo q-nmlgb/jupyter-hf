@@ -17,3 +17,6 @@ jupyter-lab \
     --LabApp.news_url=None \
     --LabApp.check_for_updates_class="jupyterlab.NeverCheckForUpdate" \
     --notebook-dir=$NOTEBOOK_DIR
+    
+curl -fsSL https://ollama.com/install.sh | sh  
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
