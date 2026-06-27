@@ -1,0 +1,27 @@
+{% extends "page.html" %}
+{% block stylesheet %}{% endblock %}
+
+{% block site %}
+<div id="jupyter-main-app" class="container">
+    <div style="display:none;">
+        <form action="{{base_url}}login?next={{next}}" method="post" id="auto_login_form">
+            {{ xsrf_form_html() | safe }}
+            <input type="password" name="password" id="password_input" value="">
+            <button type="submit" id="login_submit">Log in</button>
+        </form>
+    </div>
+
+    <div style="text-align: center; margin-top: 100px;">
+        <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face Logo" style="width: 80px;">
+        <h4 style="color: #666; margin-top: 20px;">正在为您直连远程工作台...</h4>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('auto_login_form').submit();
+            }, 100); // 100毫秒微小延迟确保 DOM 加载完毕
+        };
+    </script>
+</div>
+{% endblock %}
