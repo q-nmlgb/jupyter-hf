@@ -60,7 +60,7 @@ RUN curl -fsSL -o /root/miniconda.sh https://repo.anaconda.com/miniconda/Minicon
     rm -f /root/miniconda.sh && \
     conda clean -ya
 
-WORKDIR /root/app
+WORKDIR /root
 
 # Back to root for system packages / startup
 USER root
@@ -81,10 +81,12 @@ RUN --mount=target=requirements.txt,source=requirements.txt \
     pip install --no-cache-dir --upgrade -r requirements.txt
 
 # App files
-COPY --chown=root:root . /root/app
+COPY --chown=root:root . /root
 
-RUN chmod +x /root/app/start_server.sh
+RUN chmod +x /root/start_server.sh
+      
 
+WORKDIR /root
 # Jupyter template path for Python 3.12
 COPY --chown=root:root login.html /root/miniconda/lib/python3.12/site-packages/jupyter_server/templates/login.html
 
