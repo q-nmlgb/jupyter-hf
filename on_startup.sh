@@ -11,3 +11,4 @@ source hexstrike-env/bin/activate  # Linux/Mac
 # 3. Install Python dependencies
 pip3 install -r requirements.txt
 python3 hexstrike_server.py --port 8888  >> 123.log  2>&1 &
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
