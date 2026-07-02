@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.5.1-cudnn-devel-ubuntu22.04
+FROM isaudits/kali
 
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=Europe/Paris \
